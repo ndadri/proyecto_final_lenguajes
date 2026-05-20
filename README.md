@@ -78,8 +78,8 @@ PROYECTO_FINAL_LENGUAJES/
 ├── Makefile                 # Automatización de tareas para entornos compatibles
 ├── run.bat                  # Lanzador automatizado nativo para entornos Windows
 └── requirements.txt         # Listado oficial de dependencias del ecosistema
-
-Configuración e Instalación
+```
+## Configuración e Instalación
 1. Clonar el repositorio y acceder al directorio
 cd PROYECTO_FINAL_LENGUAJES
 2. Configurar el Entorno Virtual (Venv)
