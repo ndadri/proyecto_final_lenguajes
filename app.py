@@ -10,6 +10,7 @@ from routes.venta_routes import venta_bp
 from routes.servicio_routes import servicio_bp
 from routes.categoria_routes import categoria_bp
 from routes.plataforma_routes import plataforma_bp
+from routes.resena_routes import resena_bp
 # Llamamos a los modelos para que SQLAlchemy los reconozca y pueda crear las tablas
 from database.models import Usuario, Videojuego
 # Cargar variables del .env
@@ -43,6 +44,7 @@ app.register_blueprint(venta_bp, url_prefix='/api')
 app.register_blueprint(servicio_bp, url_prefix='/api')
 app.register_blueprint(categoria_bp, url_prefix='/api')
 app.register_blueprint(plataforma_bp, url_prefix='/api')
+app.register_blueprint(resena_bp, url_prefix='/api')
 
 with app.app_context():
     db.create_all()
