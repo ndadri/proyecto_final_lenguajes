@@ -26,7 +26,10 @@ def token_requerido(roles_permitidos=None):
                 # 3. Verificar si el usuario tiene el rol necesario
                 if roles_permitidos and data['rol'] not in roles_permitidos:
                     return {"error": f"Acceso denegado. Tu rol es '{data['rol']}' y necesitas ser {roles_permitidos}"}, 403
-                    
+                
+                # Si todo está bien, guardamos la info del usuario en el request para usarla en la ruta
+                request.usuario_actual = data
+            
             except jwt.ExpiredSignatureError:
                 return {"error": "El token ha expirado. Vuelve a iniciar sesión"}, 401
             except jwt.InvalidTokenError:

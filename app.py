@@ -3,7 +3,13 @@ import urllib
 from flask import Flask
 from dotenv import load_dotenv
 from database.db import db
+# Importamos los blueprints de rutas
 from routes.usuario_routes import usuario_bp
+from routes.videojuego_routes import videojuego_bp
+from routes.venta_routes import venta_bp
+from routes.servicio_routes import servicio_bp
+from routes.categoria_routes import categoria_bp
+from routes.plataforma_routes import plataforma_bp
 # Llamamos a los modelos para que SQLAlchemy los reconozca y pueda crear las tablas
 from database.models import Usuario, Videojuego
 # Cargar variables del .env
@@ -32,6 +38,11 @@ db.init_app(app)
 
 # Registrar los blueprints de rutas
 app.register_blueprint(usuario_bp, url_prefix='/api')
+app.register_blueprint(videojuego_bp, url_prefix='/api')
+app.register_blueprint(venta_bp, url_prefix='/api')
+app.register_blueprint(servicio_bp, url_prefix='/api')
+app.register_blueprint(categoria_bp, url_prefix='/api')
+app.register_blueprint(plataforma_bp, url_prefix='/api')
 
 with app.app_context():
     db.create_all()
